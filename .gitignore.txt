@@ -1,0 +1,25 @@
+# Ignorar carpetas de compilacion de NetBeans
+/build
+/dist
+
+# Ignorar carpetas de configuracion de NetBeans
+/nbproject/private/
+/nbproject/build-impl.xml
+/nb-configuration.xml
+
+# Ignorar archivos de registro y temporales
+*.log
+*.swp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar librerias grandes (es mejor no subir .jar binarios)
+# Sin embargo, si tu proyecto las necesita para que otros lo ejecuten,
+# podrias decidir subir una carpeta 'lib' separada.
+# Por ahora, ignoramos las que mencionaste:
+# mysql-connector-j-9.4.0.jar
+# jakarta.servlet.jsp.jstl-3.0.1.jar
+# jakarta.servlet.jsp.jstl-api-3.0.0.jar
+Initial commit: Estructura base del proyecto y Servlets iniciales.

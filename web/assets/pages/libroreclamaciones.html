@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rinconcito</title>
+     <!-- Enlazar css con el html -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <!-- Enlazar el HTML con el favicon     -->
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <body>
+     <header id="barra-superior">
+      <div class="contenedor">
+        <div class="fila bs-space-beetween">
+          <!-- En barra superior (solo escritorio) -->
+          <div class="logo-aj escritorio">
+            <a href="../../index.html">
+              <img
+                src="../../assets/img/logoRestaruate2.png"
+                alt=""
+                class="ajustar-logo"
+              />
+            </a>
+          </div>
+          <div class="bs-rs flex-i">
+            <div class="flex-i">
+              <a
+                class="bs-link"
+                href="https://www.google.com/maps/place/restaurante+el+rinconcito+escondido/data=!4m2!3m1!1s0x9105c8eae898cf9f:0x8b62f0e62eccfff1?sa=X&ved=1t:242&ictx=111"
+                target="_blank"
+              >
+                <i class="fa-solid fa-location-dot logo-redes"></i>
+              </a>
+              <div class="datos">
+                <h4>UBICACION</h4>
+              </div>
+            </div>
+            <div class="flex-i">
+              <a
+                class="bs-link"
+                href="mailto:contacto@rinconcito.com.pe"
+                target="_blank"
+              >
+                <i class="fa-solid fa-envelope logo-redes"></i>
+              </a>
+              <div class="datos">
+                <h4>SOPORTE ONLINE</h4>
+              </div>
+            </div>
+            <div class="flex-i">
+              <a class="bs-link" href="tel:‪+5114325567‬" target="_blank">
+                <i class="fa-solid fa-phone logo-redes"></i>
+              </a>
+              <div class="datos">
+                <h4>RESERVAS </h4>
+              </div>
+              </div>
+                <div class="flex-i">
+              <a class="bs-link" href="https://rinconcito@twitter.com" target="_blank">
+                <i class="fa-brands fa-x-twitter logo-redes"></i>
+              </a>
+              <div class="datos">
+                <h4>TWITTER </h4>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+     <header id="cabecera" class="fijar-cabecera">
+      <div class="nav-contenedor">
+        <!-- En barra de navegación (solo móvil) -->
+        <div class="logo-aj movil">
+          <a href="../../index.html">
+            <img
+              src="../../assets/img/logoRestaruate2.png"
+              alt=""
+              class="ajustar-logo"
+            />
+          </a>
+        </div>
+        <nav class="nav-bar">
+          <!-- Menú de navegación -->
+          <div class="caja-menu">
+            <ul class="nav-menu" id="menu-navegacion">
+              <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../index.html">Inicio</a>
+              </li>
+              <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../assets/pages/nosotros.html"
+                  >Nosotros</a
+                >
+              </li>
+              <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../assets/pages/servicios.html"
+                  >Servicios</a
+                >
+              </li>
+              <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../assets/pages/organizacion.html"
+                  >Organización</a
+                >
+              </li>
+              <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../assets/pages/reserva.html"
+                  >Reservas</a
+                >
+                 <li class="nav-menu-item">
+                <a class="nav-menu-link" href="../../assets/pages/platos.html"
+                  >Platos</a
+                >
+              </li>
+              </li>
+            </ul>
+          </div>
+        </nav>
+          <!-- Agrupamos lupa + hamburguesa en un mismo contenedor -->
+          <div class="iconos-derecha">
+            <div class="nav-icon">
+            </div>
+            <!-- Icono del menú hamburguesa -->
+            <div class="menu-toggle">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+          <!-- Botón SOLO para móviles -->
+          <a href="#" class="boton-cotiza boton-movil"
+            ><span>Restaurante</span> <span>"El Rinconcito "</span></a
+          >
+          <!-- Botón SOLO para escritorio -->
+          <a href="#" class="boton-cotiza boton-escritorio"
+            >Restaurante "El Rinconcito "</a>
+            <a href="#" id="abrirLogin" class="boton-login">Iniciar Sesión</a>
+            <div id="usuarioActivo" class="oculto">
+   <span id="nombreUsuario" class="nombre-usuario"></span>
+  <button id="cerrarSesion" class="boton-login">Cerrar Sesión</button>
+
+</div>
+    </header>
+
+      <!--Título página -->
+    <section id="titulo-pagina" class="padded">
+        <div class="contenedor">
+            <h6>Libro de Reclamaciones</h6>
+            <a href="../../index.html">Inicio</a> /Libro de Reclamaciones
+        </div>
+    </section>
+    <main>
+       <section class="espaciado" id="libro-reclamaciones">
+            <div class="contenedor">
+                <h2 class="texto-rojo">Libro de Reclamaciones</h2>
+                <p>
+                Si tuviste algún inconveniente con nuestro servicio, puedes presentar tu reclamo completando el siguiente formulario. Recibirás una respuesta en un plazo no mayor a 5 días hábiles.
+                </p>
+
+                <div class="caja-formulario">
+                <form id="form-reclamo" onsubmit="registrarReclamo(); return false">
+                    <input class="form-control" id="nombre" type="text" placeholder="Nombre completo*" required/>
+                    <input class="form-control" id="correo" type="email" placeholder="Correo electrónico*"required/>
+                    <input class="form-control" id="telefono" type="tel" placeholder="Teléfono*" required/>
+                    <textarea class="form-control textarea-no-resize" id="descripcion" rows="5" required placeholder="Describa el reclamo*"></textarea>
+
+                    <div>
+                        <input class="check-acepto" type="checkbox" required id="acepto">
+                        <label for="acepto">He leido y acepto los
+                            <a href="tyc.html" class="enlace-enviar">
+                            terminos y condiciones
+                            </a>
+                            de acerca de la privacidad de mis datos personales.</label>
+                    </div>
+
+                    <div class="boton-enviar">
+                    <input type="submit" value="Enviar reclamo" />
+                    <i class="fa-solid fa-paper-plane" style="color: #919bb2"></i>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+      <footer id="pie" class="espaciado">
+      <!-- Pie de pagina -->
+      <div class="contenedor f-secciones">
+        <!--Contactanos-->
+        <div class="f-columna">
+          <h3>CONTÁCTANOS</h3>
+          <ul>
+            <li>
+              <a href="mailto:info@restaurantelrinconcito.com">
+                info@restaurantelrinconcito.com
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:eventos@restaurantelrinconcito.com">
+                eventos@restaurantelrinconcito.com
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:reservas@restaurantelrinconcito.com">
+                reservas@restaurantelrinconcito.com
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Enlaces-->
+        <div class="f-columna">
+          <h3>ENLACES</h3>
+          <ul>
+            <li>
+              <a href="../../index.html">Inicio</a>
+            </li>
+
+            <li>
+              <a href="../../assets/pages/nosotros.html">Nosotros</a>
+            </li>
+
+            <li>
+              <a href="../../assets/pages/servicios.html">Servicios</a>
+            </li>
+
+            <li>
+              <a href="../../assets/pages/organizacion.html">Organización</a>
+            </li>
+
+            <li>
+              <a href="../../assets/pages/reserva.html">Reservas</a>
+            </li>
+            <li>
+              <a href="../../assets/pages/platos.html">Platos</a>
+            </li>
+
+            <li>
+              <a href="../../assets/pages/libroreclamaciones.html">
+                <i class="fa-solid fa-book"></i>
+                Libro de reclamaciones
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Siguenos-->
+        <div class="f-columna">
+          <h3>SÍGUENOS</h3>
+          <div class="redes">
+            <a href="http://instagram.com" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="http://facebook.com" target="_blank">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+
+            <a href="http://linkedin.com" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="http://youtube.com" target="_blank">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor">
+        <span
+          >&copy;
+          <!-- Crea el simoblo c -->
+          2025 Restaurante "El Rinconcito" - Todos los derechos
+          reservados.</span
+        >
+      </div>
+    </footer>
+
+    <a href="#" class="scroll-up">
+      <i class="fa-solid fa-angle-up"></i>
+    </a>
+   
+<!-- ===================== MODAL LOGIN ===================== -->
+  <div id="overlayLogin" class="overlay-login">
+  
+  <!-- FORMULARIO LOGIN -->
+  <div class="formulario-login" id="formLogin">
+    <h2>El Rinconcito</h2>
+    <h3>Login</h3>
+    <form id="formLoginReal" onsubmit="return false;">
+      <label for="correoLogin">Correo Electrónico</label>
+      <input type="email" id="correoLogin" required>
+      <label for="passwordLogin">Contraseña</label>
+      <input type="password" id="passwordLogin" required>
+      <p class="texto-cuenta">¿No tienes cuenta?</p>
+      <a href="#" class="enlace" onclick="mostrarRegistro()">Regístrate aquí</a>
+      <button type="submit" class="boton iniciar-sesion">Iniciar Sesión</button>
+      <button type="button" class="cerrar" onclick="cerrarFormularios()">Cerrar</button>
+    </form>
+  </div>
+
+  <!-- FORMULARIO REGISTRO -->
+  <div class="formulario-reg oculto" id="formRegistroContainer">
+    <h2>El Rinconcito</h2>
+    <h3>Regístrate</h3>
+    <form id="formRegistro">
+      <label for="nombreReg">Nombre</label>
+      <input type="text" id="nombreReg" required>
+      
+      <label for="apellidoReg">Apellidos</label>
+      <input type="text" id="apellidoReg" required>
+      
+      <label for="dniReg">DNI</label>
+      <input type="text" id="dniReg" maxlength="8" required>
+      
+      <label for="telefonoReg">Teléfono</label>
+      <input type="text" id="telefonoReg" maxlength="9" required>
+      
+      <label for="correoReg">Correo Electrónico</label>
+      <input type="email" id="correoReg" required>
+      
+      <label for="passwordReg">Contraseña</label>
+      <input type="password" id="passwordReg" required>
+      
+      <p class="texto-cuenta">¿Ya tienes cuenta?</p>
+      <a href="#" class="enlace" onclick="mostrarLogin()">Inicia sesión</a>
+      <button type="submit" class="boton">Registrarse</button>
+      <button type="button" class="cerrar" onclick="cerrarFormularios()">Cerrar</button>
+    </form>
+  </div>
+</div>
+  <script src="../../assets/scripts/main.js"></script>
+
+</body>
+
+</html>
