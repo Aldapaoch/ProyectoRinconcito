@@ -2,12 +2,11 @@
 package Modelo;
 
 public class usuario extends registro {
-    private int idUsuario;     // id propio de la tabla Usuario
-    private int registroId;    // FK hacia Registro.id_registro
-    private String correo;     // correo del usuario
-    private String contrasena; // contraseña del usuario
+    private int idUsuario;     
+    private int registroId;   
+    private String correo;    
+    private String contrasena; 
 
-    // --- Getters y Setters ---
     public int getIdUsuario() {
         return idUsuario;
     }
