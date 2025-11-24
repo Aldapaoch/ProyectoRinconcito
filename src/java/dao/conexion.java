@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class conexion {
 
-    // Variables static para que el método static pueda usarlas
     private static final String URL = "jdbc:mysql://localhost:3306/rinconcito_db?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "admin123";
