@@ -7,14 +7,14 @@ public class testconection {
        
         Connection conn = conexion.conectar();
         if (conn != null) {
-            System.out.println("🎉 ¡Base de datos conectada correctamente!");
+            System.out.println("¡Base de datos conectada correctamente!");
             try {
-                conn.close(); // cerramos la conexión al final
+                conn.close(); 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("⚠️ No se pudo conectar a la base de datos.");
+            System.out.println("️ No se pudo conectar a la base de datos.");
         }
     }
 }
