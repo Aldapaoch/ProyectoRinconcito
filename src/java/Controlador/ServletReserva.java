@@ -23,7 +23,6 @@ public class ServletReserva extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            // ✅ Compatibilidad con 'usuario_id' o 'id'
             String idParam = request.getParameter("usuario_id");
             if (idParam == null || idParam.isEmpty()) {
                 idParam = request.getParameter("usuarioId");
@@ -32,17 +31,15 @@ public class ServletReserva extends HttpServlet {
                 idParam = request.getParameter("id");
             }
 
-            System.out.println("🟢 Parametro usuario_id recibido: " + idParam);
+            System.out.println("? Parametro usuario_id recibido: " + idParam);
 
             if (idParam == null || idParam.isEmpty()) {
-                out.print("⚠️ Error: no se recibió el ID de usuario.");
+                out.print("️ Error: no se recibió el ID de usuario.");
                 return;
             }
 
-            // ✅ Convertir a entero
             int usuarioId = Integer.parseInt(idParam);
 
-            // ✅ Obtener los demás parámetros del formulario
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String dni = request.getParameter("dni");
@@ -61,7 +58,6 @@ public class ServletReserva extends HttpServlet {
 
             int personas = Integer.parseInt(personasStr);
 
-            // ✅ Crear objeto reserva y asignar datos
             reserva r = new reserva();
             r.setUsuarioId(usuarioId);
             r.setNombre(nombre);
@@ -86,7 +82,6 @@ public class ServletReserva extends HttpServlet {
             System.out.println("hora=" + hora);
             System.out.println("vista=" + vista);
 
-            // ✅ Guardar en base de datos
             boolean ok = reservaDAO.registrarReserva(r);
 
             if (ok) {
