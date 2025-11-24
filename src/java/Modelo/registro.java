@@ -13,6 +13,7 @@ public class registro {
     private String correo;
     private String contrasena;
 
+    // Getters y Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
