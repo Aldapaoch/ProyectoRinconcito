@@ -31,7 +31,7 @@ public class registroDao {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error en registrarDao: " + e.getMessage());
+            System.out.println("Error en registrarDao: " + e.getMessage());
         }
         return false;
     }
