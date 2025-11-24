@@ -32,11 +32,9 @@ public class ServletLogin extends HttpServlet {
         usuario u = usuarioDAO.validarLogin(correo, contrasena);
 
         if (u != null) {
-            // Guardar sesión en servidor (opcional si luego usarás sesiones reales)
             HttpSession session = request.getSession();
             session.setAttribute("usuarioActivo", u);
 
-            // Respuesta JSON al frontend
             out.print("{\"status\":\"ok\", " +
                       "\"idUsuario\":" + u.getIdUsuario() + "," +
                       "\"nombre\":\"" + u.getNombre() + "\"," +
