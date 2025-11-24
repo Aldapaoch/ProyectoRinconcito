@@ -14,7 +14,6 @@ public class reservaDao {
         try (Connection con = conexion.conectar();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            // Asignar parámetros al PreparedStatement
             ps.setInt(1, r.getUsuarioId());
             ps.setString(2, r.getNombre());
             ps.setString(3, r.getApellido());
@@ -26,8 +25,8 @@ public class reservaDao {
             ps.setString(9, r.getHora());
             ps.setString(10, r.getVista());
 
-            System.out.println("📤 Ejecutando SQL: " + sql);
-            System.out.println("📦 Datos enviados:");
+            System.out.println("Ejecutando SQL: " + sql);
+            System.out.println("Datos enviados:");
             System.out.println("  usuario_id = " + r.getUsuarioId());
             System.out.println("  nombre = " + r.getNombre());
             System.out.println("  apellido = " + r.getApellido());
@@ -45,7 +44,7 @@ public class reservaDao {
             return filas > 0;
 
         } catch (SQLException e) {
-            System.out.println("❌ Error SQL al registrar reserva: " + e.getMessage());
+            System.out.println("Error SQL al registrar reserva: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
