@@ -2,12 +2,11 @@
 package Modelo;
 
 public class usuario extends registro {
-    private int idUsuario;     // id propio de la tabla Usuario
-    private int registroId;    // FK hacia Registro.id_registro
-    private String correo;     // correo del usuario
-    private String contrasena; // contraseña del usuario
+    private int idUsuario;     
+    private int registroId;   
+    private String correo;    
+    private String contrasena; 
 
-    // --- Getters y Setters ---
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -24,18 +23,22 @@ public class usuario extends registro {
         this.registroId = registroId;
     }
 
+    @Override
     public String getCorreo() {
         return correo;
     }
 
+    @Override
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    @Override
     public String getContrasena() {
         return contrasena;
     }
 
+    @Override
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }

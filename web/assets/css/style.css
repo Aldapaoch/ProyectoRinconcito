@@ -662,7 +662,7 @@ html {
 
 #nosotros {
     background-color: var(--color7);
-    justify-content: centers;
+    justify-content: center;
     margin: auto;
 
 }
@@ -1263,7 +1263,7 @@ select {
 
 #nosotros {
     background-color: var(--color7);
-    justify-content: centers;
+    justify-content: center;
     margin: auto;
 
 }

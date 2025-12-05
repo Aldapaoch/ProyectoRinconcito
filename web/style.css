@@ -71,7 +71,7 @@ h5 {
 
 h6 {
     font-size: 35px;
-    font-weight: hold;
+    font-weight: bold;
     font-family: var(--fuente3);
 }
 
@@ -530,7 +530,16 @@ html {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+   .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
 /* Efecto de resalte solo al pasar el puntero */
 .nav-icon:hover i {
     text-shadow: 0 0 6px white;
@@ -662,7 +671,7 @@ html {
 
 #nosotros {
     background-color: var(--color7);
-    justify-content: centers;
+    justify-content: center;
     margin: auto;
 
 }
@@ -1263,7 +1272,7 @@ select {
 
 #nosotros {
     background-color: var(--color7);
-    justify-content: centers;
+    justify-content: center;
     margin: auto;
 
 }
@@ -1512,7 +1521,7 @@ medianas (hasta 992px) */
     margin-left: 40px;
     }
     .campo-obligatorio {
-    margin-left: 40px;
+    margin-left: 40px;
 
 }
 }
@@ -2047,7 +2056,6 @@ medianas (hasta 992px) */
   font-weight: bold;
 }
 
-/* contenedor de vistas */
 .vistas-container {
   display: flex;
   justify-content: center;
@@ -2079,7 +2087,6 @@ medianas (hasta 992px) */
   box-shadow: 0 0 12px rgba(0,0,0,0.5);
 }
 
-/* efecto hover */
 .vista-option img:hover {
   transform: scale(1.05);
 }
@@ -2095,7 +2102,6 @@ medianas (hasta 992px) */
   color: var(--color11)
   
 }
-/* --- BOTÓN INICIAR SESIÓN (junto al botón Rinconcito) --- */
 .boton-login {
   background-color: #003366;
   color: #fff;
@@ -2111,7 +2117,6 @@ medianas (hasta 992px) */
   background-color: #0055aa;
 }
 
-/* --- OVERLAY DE LOGIN Y REGISTRO --- */
 .overlay-login {
   position: fixed;
   top: 0;
@@ -2180,14 +2185,14 @@ medianas (hasta 992px) */
   margin-bottom: 15px;
 }
 .formulario-reg {
-  background-color: #cc0000; /* Rojo */
+  background-color: #cc0000;
   color: #fff;
   border-radius: 10px;
   padding: 20px 25px;
-  width: 320px;              /* Tamaño fijo tipo ventana */
+  width: 320px;            
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   text-align: center;
-  position: fixed;           /* Centrado en pantalla */
+  position: fixed;         
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -2203,7 +2208,6 @@ medianas (hasta 992px) */
   font-weight: normal;
 }
 
-/* Campos más juntos */
 .formulario-reg label {
   display: block;
   text-align: left;
@@ -2216,10 +2220,9 @@ medianas (hasta 992px) */
   padding: 5px;
   border: none;
   border-radius: 4px;
-  margin-bottom: 6px; /* menos espacio entre campos */
+  margin-bottom: 6px;
 }
 
-/* Botones */
 .formulario-reg button {
   width: 100%;
   padding: 8px;
@@ -2231,7 +2234,6 @@ medianas (hasta 992px) */
   margin-top: 6px;
 }
 
-/* 🔵 Botón azul */
 .formulario-reg .boton {
   background-color: #007bff;
   color: white;
@@ -2241,7 +2243,6 @@ medianas (hasta 992px) */
   background-color: #0056b3;
 }
 
-/* ⚫ Botón plomo */
 .formulario-reg .cerrar {
   background-color: #ccc;
   color: #333;
@@ -2298,20 +2299,19 @@ medianas (hasta 992px) */
   display: none;
 }
 
-/* === BOTÓN INICIAR SESIÓN CON FONDO ROJO === */
 .boton-login {
-  background-color: #ea1b29 !important; /* 🔴 Rojo institucional */
-  color: #fff !important;               /* Texto blanco */
+  background-color: #ea1b29 !important;
+  color: #fff !important;              
   font-weight: bold;
   padding: 12px 18px;
   border-radius: 8px;
   border: none;
-  margin-left: 25px !important;         /* 🔹 Separa del texto Rinconcito */
+  margin-left: 25px !important;         
   text-decoration: none;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .boton-login:hover {
-  background-color: #c21825 !important; /* 🔴 Tono más oscuro al pasar mouse */
+  background-color: #c21825 !important; 
 }

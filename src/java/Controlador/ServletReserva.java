@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import dao.notificacionDao;
 
 @WebServlet("/ServletReserva")
 @MultipartConfig
@@ -21,9 +22,9 @@ public class ServletReserva extends HttpServlet {
 
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
+    
+       try {
 
-        try {
-            // ✅ Compatibilidad con 'usuario_id' o 'id'
             String idParam = request.getParameter("usuario_id");
             if (idParam == null || idParam.isEmpty()) {
                 idParam = request.getParameter("usuarioId");
@@ -32,17 +33,13 @@ public class ServletReserva extends HttpServlet {
                 idParam = request.getParameter("id");
             }
 
-            System.out.println("🟢 Parametro usuario_id recibido: " + idParam);
-
             if (idParam == null || idParam.isEmpty()) {
                 out.print("⚠️ Error: no se recibió el ID de usuario.");
                 return;
             }
 
-            // ✅ Convertir a entero
             int usuarioId = Integer.parseInt(idParam);
 
-            // ✅ Obtener los demás parámetros del formulario
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String dni = request.getParameter("dni");
@@ -61,7 +58,6 @@ public class ServletReserva extends HttpServlet {
 
             int personas = Integer.parseInt(personasStr);
 
-            // ✅ Crear objeto reserva y asignar datos
             reserva r = new reserva();
             r.setUsuarioId(usuarioId);
             r.setNombre(nombre);
@@ -74,30 +70,20 @@ public class ServletReserva extends HttpServlet {
             r.setHora(hora);
             r.setVista(vista);
 
-            System.out.println("🟢 Datos recibidos para reserva:");
-            System.out.println("usuarioId=" + usuarioId);
-            System.out.println("nombre=" + nombre);
-            System.out.println("apellido=" + apellido);
-            System.out.println("dni=" + dni);
-            System.out.println("telefono=" + telefono);
-            System.out.println("correo=" + correo);
-            System.out.println("personas=" + personas);
-            System.out.println("fecha=" + fecha);
-            System.out.println("hora=" + hora);
-            System.out.println("vista=" + vista);
+            int idReserva = reservaDAO.registrarReserva(r);
 
-            // ✅ Guardar en base de datos
-            boolean ok = reservaDAO.registrarReserva(r);
+            if (idReserva > 0) {
+                notificacionDao notiDAO = new notificacionDao();
+                notiDAO.crearNotificacion(idReserva);
 
-            if (ok) {
-                out.print("✅ Reserva registrada correctamente");
+                out.print("✅ Reserva registrada y notificación creada.");
             } else {
                 out.print("❌ Error al guardar en la base de datos");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            out.print("⚠️ Error interno: " + e.getMessage());
+            out.print("❌ Error interno: " + e.getMessage());
         }
     }
 }

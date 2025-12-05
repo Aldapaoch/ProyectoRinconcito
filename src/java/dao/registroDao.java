@@ -31,8 +31,27 @@ public class registroDao {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error en registrarDao: " + e.getMessage());
+            System.out.println("Error en registrarDao: " + e.getMessage());
         }
         return false;
     }
+    public boolean existeDniOCorreo(String dni, String correo) {
+    String sql = "SELECT COUNT(*) FROM Registro WHERE dni = ? OR correo_electronico = ?";
+
+    try (Connection cn = conexion.conectar();
+         PreparedStatement ps = cn.prepareStatement(sql)) {
+
+        ps.setString(1, dni);
+        ps.setString(2, correo);
+
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1) > 0;
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error en existeDniOCorreo: " + e.getMessage());
+    }
+    return true;
+}
 }

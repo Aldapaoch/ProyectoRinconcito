@@ -11,6 +11,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 @WebServlet("/ServletUsuario")
 public class ServletUsuario extends HttpServlet {
 
@@ -24,11 +25,8 @@ public class ServletUsuario extends HttpServlet {
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        // ==============================
-        // 🔹 CAPTURA DE LA ACCIÓN
-        // ==============================
         String accion = request.getParameter("accion");
-        System.out.println("🚀 [ServletUsuario] doPost ejecutado correctamente");
+        System.out.println(" [ServletUsuario] doPost ejecutado correctamente");
 
         if (accion == null || accion.isEmpty()) {
             out.print("⚠️ No se recibió ninguna acción.");
@@ -36,7 +34,7 @@ public class ServletUsuario extends HttpServlet {
             return;
         }
 
-        System.out.println("📩 Acción recibida: " + accion);
+        System.out.println(" Acción recibida: " + accion);
 
         switch (accion) {
             case "registrar":
@@ -49,14 +47,11 @@ public class ServletUsuario extends HttpServlet {
 
             default:
                 out.print("❌ Acción no válida: " + accion);
-                System.out.println("⚠️ Acción no reconocida: " + accion);
+                System.out.println("️ Acción no reconocida: " + accion);
                 break;
         }
     }
 
-    // ============================================================
-    // 🔹 REGISTRAR USUARIO
-    // ============================================================
     private void registrarUsuario(HttpServletRequest request, PrintWriter out) {
         System.out.println("🧩 Entrando a registrarUsuario()");
         try {
@@ -68,26 +63,37 @@ public class ServletUsuario extends HttpServlet {
             r.setCorreo(request.getParameter("correo"));
             r.setContrasena(request.getParameter("contrasena"));
 
-            // Mostrar lo recibido
-            System.out.println("📥 Datos recibidos en el servlet:");
+            System.out.println("?Datos recibidos en el servlet:");
             System.out.println(" - Nombre: " + r.getNombre());
             System.out.println(" - Apellido: " + r.getApellido());
             System.out.println(" - DNI: " + r.getDni());
             System.out.println(" - Teléfono: " + r.getTelefono());
             System.out.println(" - Correo: " + r.getCorreo());
             System.out.println(" - Contraseña: " + r.getContrasena());
+            
+            if (r.getDni() == null || !r.getDni().matches("\\d{8}")) {
+            out.print("❌ DNI inválido: debe contener 8 números.");
+            return;
+}
 
-            // Guardar en la base de datos
-            System.out.println("📦 Intentando registrar en la base de datos...");
+            if (r.getCorreo() == null || !r.getCorreo().matches("^[A-Za-z0-9._%+-]+@gmail\\.com$")) {
+            out.print("❌ El correo debe terminar en @gmail.com");
+            return;
+}
+               if (registroDAO.existeDniOCorreo(r.getDni(), r.getCorreo())) {
+              out.print("❌ DNI o correo ya registrados.");
+                 return;
+}       
+
+            System.out.println("?Intentando registrar en la base de datos...");
             boolean ok = registroDAO.registrar(r);
 
             if (ok) {
                 usuarioDAO.crearCuentaUsuario(r.getId(), r.getCorreo(), r.getContrasena());
                 out.print("✅ Usuario registrado correctamente.");
-                System.out.println("✅ Usuario registrado correctamente en BD");
+                System.out.println("✅ Usuario registrado correctamente");
             } else {
-                out.print("❌ Error al registrar el usuario en BD.");
-                System.out.println("❌ Error al insertar usuario en BD");
+                out.print("❌ No se pudo registrar: DNI o correo ya registrados.");
             }
 
         } catch (Exception e) {
@@ -97,9 +103,6 @@ public class ServletUsuario extends HttpServlet {
         }
     }
 
-    // ============================================================
-    // 🔹 LOGIN DE USUARIO
-    // ============================================================
     private void iniciarSesion(HttpServletRequest request, PrintWriter out) {
         System.out.println("🔑 Entrando a iniciarSesion()");
         try {
@@ -123,7 +126,7 @@ public class ServletUsuario extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             out.print("❌ Error interno al iniciar sesión: " + e.getMessage());
-            System.out.println("💥 Excepción en iniciarSesion: " + e.getMessage());
+            System.out.println(" Excepción en iniciarSesion: " + e.getMessage());
         }
     }
 }

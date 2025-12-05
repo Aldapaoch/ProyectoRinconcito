@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class usuarioDao {
 
-    // 🟢 Crear cuenta de usuario
     public boolean crearCuentaUsuario(int registroId, String correo, String contrasena) {
         String sql = "INSERT INTO Usuario (registro_id, correo, contrasena) VALUES (?, ?, ?)";
         try (Connection cn = conexion.conectar();
@@ -27,7 +26,6 @@ public class usuarioDao {
         return false;
     }
 
-    // 🟢 Validar login y traer datos completos del usuario
     public usuario validarLogin(String correo, String contrasena) {
         usuario u = null;
 
